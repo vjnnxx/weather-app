@@ -1,3 +1,14 @@
 body{
     background-color: aquamarine;
 }
+
+.forecast-card{
+    border: 1px solid black;
+    width: 300px;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
