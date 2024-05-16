@@ -1,14 +1,82 @@
-body{
-    background-color: aquamarine;
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('./Ubuntu-Regular.ttf');
+}
+
+*{
+    font-family: 'Ubuntu';
+}
+
+body, #forecast-form>input, *:focus, button{
+    background-color: #FFF3F0;
 }
 
 .forecast-card{
     border: 1px solid black;
-    width: 300px;
+    width: 416px;
 }
 
 .main{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 150px;
+    gap: 16px;
+}
+
+#forecast-form>input{
+    border: none;
+    border-bottom: 1px solid rgb(68, 68, 68);
+    font-size: 16px;
+    width: 450px;
+}
+
+button{
+    font-size: 16px;
+    border: none;
+    outline: none;
+}
+
+.tabs>button{
+    border-bottom: 1px solid rgb(68, 68, 68);
+}
+
+*:focus{
+    outline: none;
+}
+
+.forecast-content{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 50px;
+}
+
+.tabs{
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.tabs>button{
+    width: 200px;
+}
+
+.forecast-card{
+    background-color: #788AA3;
+    border: none;
+    border-radius: 8px;
+    color: #FFF3F0;
+    padding: 16px;
+    font-size: 20px;
+}
+
+.cards{
+    display: flex;
+    gap: 20px;
+}
+
+#today:focus, #expanded:focus{
+    border-bottom: 1px solid #0C6291;
+    color: #0C6291;
 }
