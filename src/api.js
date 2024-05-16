@@ -6,7 +6,7 @@ async function getCurrentWeather(locationQuery){
         'lang': 'pt',
     });
 
-    const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${params}`);
+    const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${params}`);
     const responseJson = await response.json();
     const forecastDay = responseJson.forecast.forecastday[0];
     const location = responseJson.location;
@@ -32,7 +32,7 @@ async function getThreeDaysWeather(locationQuery){
         'days': 3,
     });
 
-    const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${params}`);
+    const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${params}`);
     const responseJson = await response.json();
     const forecastDays = responseJson.forecast.forecastday;
     const location = responseJson.location;
