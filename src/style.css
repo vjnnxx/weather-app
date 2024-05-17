@@ -20,7 +20,7 @@ body, #forecast-form>input, *:focus, button{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 150px;
+    margin-top: 75px;
     gap: 16px;
 }
 
@@ -49,7 +49,7 @@ button{
     display: flex;
     flex-direction: column;
     gap: 16px;
-    margin-top: 50px;
+    margin-top: 25px;
 }
 
 .tabs{
@@ -79,4 +79,28 @@ button{
 #today:focus, #expanded:focus{
     border-bottom: 1px solid #0C6291;
     color: #0C6291;
+}
+
+.icon-div{
+    display: flex;
+    align-items: flex-end;
+}
+
+.days{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.mini-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #788AA3;
+    color: #FFF3F0;
+    font-size: 20px;
+    width: 200px;
+    height: 200px;
+    border: none;
+    border-radius: 8px;
 }

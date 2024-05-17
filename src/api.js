@@ -26,14 +26,16 @@ async function getCurrentWeather(locationQuery){
     return forecast
 }
 
-async function getThreeDaysWeather(locationQuery){
+async function getFourDaysWeather(locationQuery){
     const params = new URLSearchParams({
         'q': locationQuery,
-        'days': 3,
+        'lang': 'pt',
+        'days': 4,
     });
 
-    const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${params}`);
+    const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${params}&aqi=no`);
     const responseJson = await response.json();
+    console.log(responseJson)
     const forecastDays = responseJson.forecast.forecastday;
     const location = responseJson.location;
     const forecastArray = [];
@@ -46,6 +48,8 @@ async function getThreeDaysWeather(locationQuery){
             'chance_of_rain': day.day.daily_chance_of_rain,
             'total_precipitation': day.day.totalprecip_mm,
             'date': day.date,
+            'condition_text': day.day.condition.text,
+            'condition_icon': day.day.condition.icon,
             'city_name': location.name,
             'country': location.country,
             'localtime': location.localtime,
@@ -58,4 +62,4 @@ async function getThreeDaysWeather(locationQuery){
     
 }
 
-export {getCurrentWeather, getThreeDaysWeather}
+export {getCurrentWeather, getFourDaysWeather}
