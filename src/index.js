@@ -1,13 +1,18 @@
 import './style.css';
-import {getCurrentWeather, getFourDaysWeather, fetchBlob} from './api';
+import {getForecast} from './api';
 
 let result;
 
+
 const updateDay = async () => {
+    const days = document.querySelector('.days');
+
+    days.innerHTML = '';
+    
     cards.innerHTML = '';
     actualLocation = location.value;
-    result = await getFourDaysWeather(actualLocation);
-    console.log(result)
+    result = await getForecast(actualLocation);
+    //console.log(result)
     const current = result[0];
     let dayDate = new Date(current.localtime);
     
@@ -51,30 +56,25 @@ const updateDay = async () => {
     div.appendChild(iconDiv);
 
     cards.appendChild(div);
-    
-    const days = document.querySelector('.days');
 
-    days.innerHTML = '';
+    const semana = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
 
-    //Gerar mini divs com icone do tempo nos próximos 3 dias + temp max e min
     result.forEach((day) =>{
         const div = document.createElement('div');
         div.classList.toggle('mini-card');
 
         let dayDate = new Date(day.date);
-
     
         let date = dayDate.getDate();
         let month = dayDate.getMonth();
 
-
         const calendar = document.createElement('p');
-        calendar.textContent = `${date} / ${month + 1}`;
+        calendar.textContent = `${semana[dayDate.getDay()]} - ${date + 1} / ${month + 1}`;
 
         const temp = document.createElement('p');
         temp.textContent = `${day.min_temp}ºC / ${day.max_temp}ºC`;
         const icon = new Image();
-        icon.src = 'https:' + current.condition_icon;
+        icon.src = 'https:' + day.condition_icon;
 
         div.append(calendar);
         div.appendChild(temp);
